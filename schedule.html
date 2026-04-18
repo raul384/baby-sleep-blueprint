@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby Sleep Blueprint — Full Schedule Guide</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #access-gate {
+      position: fixed; inset: 0; z-index: 9999;
+      background: linear-gradient(135deg, #3A9EC8 0%, #4AAEC8 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    #access-card {
+      background: #fff; border-radius: 20px; padding: 48px 40px;
+      max-width: 440px; width: 100%; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    #access-card h2 { font-family: 'Playfair Display', serif; color: #1E7EB8; font-size: 1.6rem; margin-bottom: 8px; }
+    #access-card p { color: #64748B; font-size: 0.95rem; margin-bottom: 28px; }
+    #access-input {
+      width: 100%; padding: 14px 18px; border: 2px solid #E2E8F0;
+      border-radius: 10px; font-size: 1.1rem; text-align: center;
+      letter-spacing: 0.12em; font-weight: 700; color: #1E293B;
+      outline: none; font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+    }
+    #access-input:focus { border-color: #1E7EB8; }
+    #access-btn {
+      margin-top: 16px; width: 100%; padding: 14px;
+      background: #E8971D; color: #1E293B; border: none;
+      border-radius: 50px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    #access-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,151,29,0.4); }
+    #access-error { color: #DC2626; font-size: 0.88rem; margin-top: 12px; display: none; }
+    #access-back { display: block; margin-top: 20px; color: #94A3B8; font-size: 0.85rem; text-decoration: none; }
+    #access-back:hover { color: #1E7EB8; }
+  </style>
+</head>
+<body>
+
+<!-- ACCESS GATE -->
+<div id="access-gate">
+  <div id="access-card">
+    <div style="font-size:2.5rem;margin-bottom:12px;">🌙</div>
+    <h2>Baby Sleep Blueprint</h2>
+    <p>Enter your access code from your purchase confirmation to view the full guide.</p>
+    <input id="access-input" type="text" placeholder="Enter code" autocomplete="off" />
+    <button id="access-btn" onclick="checkCode()">Unlock My Guide</button>
+    <div id="access-error">Incorrect code. Please check your confirmation email.</div>
+    <a href="index.html" id="access-back">← Don't have a code? Get access here</a>
+  </div>
+</div>
+
+<script>
+  const ACCESS_CODE = 'SLEEP2025';
+  if (sessionStorage.getItem('bsb_unlocked') === 'true') {
+    document.getElementById('access-gate').style.display = 'none';
+  }
+  function checkCode() {
+    const val = document.getElementById('access-input').value.trim().toUpperCase();
+    if (val === ACCESS_CODE) {
+      sessionStorage.setItem('bsb_unlocked', 'true');
+      document.getElementById('access-gate').style.display = 'none';
+    } else {
+      document.getElementById('access-error').style.display = 'block';
+      document.getElementById('access-input').style.borderColor = '#DC2626';
+    }
+  }
+  document.getElementById('access-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkCode();
+  });
+</script>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span>🌙</span> Baby Sleep Blueprint</a>
+  <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+</nav>
+
+<!-- HEADER -->
+<div class="schedule-header">
+  <h1>🌙 Baby Sleep Blueprint</h1>
+  <p>Your complete age-by-age feeding &amp; sleep schedule — Newborn through 2.5 Years</p>
+  <div class="schedule-header-actions">
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <a href="index.html" class="btn-print" style="text-decoration:none;">← Back to Home</a>
+  </div>
+</div>
+
+<div class="schedule-page">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="schedule-toc">
+    <h2>📋 Jump to a Schedule</h2>
+    <div class="toc-grid">
+      <a class="toc-link" href="#newborn">🐣 Newborn</a>
+      <a class="toc-link" href="#2-3months">👶 2–3 Months</a>
+      <a class="toc-link" href="#4-5months">🌱 4–5 Months</a>
+      <a class="toc-link" href="#5-6months">🌿 5–6 Months</a>
+      <a class="toc-link" href="#6-7months">⭐ 6–7 Months</a>
+      <a class="toc-link" href="#7-8months">🌟 7–8 Months</a>
+      <a class="toc-link" href="#8-10months">🌙 8–10 Months</a>
+      <a class="toc-link" href="#11-12months">🎯 11–12 Months</a>
+      <a class="toc-link" href="#12-14months">🚀 12–14 Months</a>
+      <a class="toc-link" href="#15m-2years">🎠 15 Months–2 Years</a>
+      <a class="toc-link" href="#2-5years">🎉 2.5 Years</a>
+    </div>
+  </div>
+
+  <!-- ── 1. NEWBORN ── -->
+  <div class="schedule-block" id="newborn">
+    <div class="schedule-block-header">
+      <span class="age-icon">🐣</span>
+      <h2>Newborn</h2>
+    </div>
+    <div class="schedule-block-note">
+      💡 <span>Nighttime feeds can be closer together. When they first came home, sometimes every hour to hour and a half. Bath every 2–4 days with a washcloth before the umbilical cord falls off.</span>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">6:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc"><strong>2–3 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong> · Nap after · 2–10 min tummy time on chest or floor</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong> · Nap after · 2–10 min tummy time on chest or floor</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong> · Nap after · 2–10 min tummy time on chest or floor</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong> · Nap after · 2–10 min tummy time on chest or floor</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong></span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 AM</span>
+        <span class="entry-badge badge-nap">🌙 Night Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong></span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 AM</span>
+        <span class="entry-badge badge-nap">🌙 Night Feed</span>
+        <span class="entry-desc"><strong>2–3 oz</strong></span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Repeat cycle</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2. 2/3 MONTHS ── -->
+  <div class="schedule-block" id="2-3months">
+    <div class="schedule-block-header">
+      <span class="age-icon">👶</span>
+      <h2>2–3 Months</h2>
+    </div>
+    <div class="schedule-block-note">
+      💡 <span>2-month schedule is the same but with <strong>3–4 oz</strong> bottles. Nighttime feeding varies — anywhere from 1–4 AM, can be 2 times if necessary.</span>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc"><strong>5 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:30–9:00</span>
+        <span class="entry-badge badge-play">🎨 Activity</span>
+        <span class="entry-desc">Get dressed · Sensory video time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:00–11:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~2 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:30 AM</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Tummy time · Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>5 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">1:00–3:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~2 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:30 PM</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Tummy time · Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">4:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>5 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">5:00–6:45</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.75 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:45–7:30</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Wake time · Play · Tummy time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:30 PM</span>
+        <span class="entry-badge badge-routine">📖 Routine</span>
+        <span class="entry-desc">Bath · Books · Lotion · PJs</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc"><strong>5–6 oz</strong> bedtime bottle · Sleep</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">1:00–4:00 AM</span>
+        <span class="entry-badge badge-nap">🌙 Night Feed</span>
+        <span class="entry-desc">1–2 night feeds if necessary</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 3. 4/5 MONTHS ── -->
+  <div class="schedule-block" id="4-5months">
+    <div class="schedule-block-header">
+      <span class="age-icon">🌱</span>
+      <h2>4–5 Months</h2>
+    </div>
+    <div class="schedule-block-note">
+      💡 <span>Bottles: <strong>5–7 oz</strong> depending on age. At 5–6 months, add a second baby food serving around 11:45 AM.</span>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc"><strong>6–7 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:45 AM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc">Baby food (follow your pediatrician's recommendation)</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:30–10:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">10:00–11:00</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>6–7 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:45 AM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc">Add 2nd baby food here at <strong>5–6 months</strong></span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00–12:00</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00–2:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~2 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">2:00–3:00</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>6–7 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:45 PM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc">Baby food</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">4:00–5:15</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.25 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">5:15–6:30</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30–7:00</span>
+        <span class="entry-badge badge-routine">📖 Routine</span>
+        <span class="entry-desc">Wind down · Books · Lotion · PJs</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:45–7:00</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc"><strong>7 oz</strong> bedtime bottle · Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 4. 5/6 MONTHS ── -->
+  <div class="schedule-block" id="5-6months">
+    <div class="schedule-block-header">
+      <span class="age-icon">🌿</span>
+      <h2>5–6 Months</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc"><strong>7 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:45 AM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc"><strong>2 oz</strong> baby food</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:45–10:15</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>7 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:15–1:45</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>7 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:30 PM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc"><strong>2 oz</strong> baby food</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:45–4:45</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:45–7:00</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc"><strong>7 oz</strong> bedtime bottle · Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 5. 6/7 MONTHS ── -->
+  <div class="schedule-block" id="6-7months">
+    <div class="schedule-block-header">
+      <span class="age-icon">⭐</span>
+      <h2>6–7 Months</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 AM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc">Baby food</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:00–10:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:45 AM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc">Baby food</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:30–1:30</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:30 PM</span>
+        <span class="entry-badge badge-meal">🥣 Baby Food</span>
+        <span class="entry-desc">Baby food</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:45–4:30</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~45 min nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:45–7:00</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc"><strong>8 oz</strong> bedtime bottle · Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 6. 7/8 MONTHS ── -->
+  <div class="schedule-block" id="7-8months">
+    <div class="schedule-block-header">
+      <span class="age-icon">🌟</span>
+      <h2>7–8 Months</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Wake time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc">Bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 AM</span>
+        <span class="entry-badge badge-meal">🥣 Breakfast</span>
+        <span class="entry-desc">Breakfast</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:30–10:30</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc">Bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Lunch</span>
+        <span class="entry-desc">Lunch</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">1:30–3:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc">Bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">4:00–5:00</span>
+        <span class="entry-badge badge-meal">🥣 Dinner</span>
+        <span class="entry-desc">Dinner</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:15 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30–6:45</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc">Bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc">Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 7. 8/9/10 MONTHS ── -->
+  <div class="schedule-block" id="8-10months">
+    <div class="schedule-block-header">
+      <span class="age-icon">🌙</span>
+      <h2>8–10 Months</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Wake time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 AM</span>
+        <span class="entry-badge badge-meal">🥣 Breakfast</span>
+        <span class="entry-desc">Breakfast</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:15–10:45</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Lunch</span>
+        <span class="entry-desc">Lunch</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">1:30–3:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">5:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Dinner</span>
+        <span class="entry-desc">Dinner</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc"><strong>8 oz</strong> bottle · Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 8. 11/12 MONTHS ── -->
+  <div class="schedule-block" id="11-12months">
+    <div class="schedule-block-header">
+      <span class="age-icon">🎯</span>
+      <h2>11–12 Months</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Wake up</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> milk bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 AM</span>
+        <span class="entry-badge badge-meal">🥣 Breakfast</span>
+        <span class="entry-desc">Breakfast</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:45–11:15</span>
+        <span class="entry-badge badge-nap">😴 Nap 1</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> milk bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:45 PM</span>
+        <span class="entry-badge badge-meal">🥣 Lunch</span>
+        <span class="entry-desc">Lunch</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">2:15–3:30</span>
+        <span class="entry-badge badge-nap">😴 Nap 2</span>
+        <span class="entry-desc">~1.25 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:45 PM</span>
+        <span class="entry-badge badge-meal">🍎 Snack</span>
+        <span class="entry-desc">Snack</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">5:00 PM</span>
+        <span class="entry-badge badge-feed">🍼 Feed</span>
+        <span class="entry-desc"><strong>8 oz</strong> milk bottle</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Dinner</span>
+        <span class="entry-desc">Dinner</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc">Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 9. 12/13/14 MONTHS ── -->
+  <div class="schedule-block" id="12-14months">
+    <div class="schedule-block-header">
+      <span class="age-icon">🚀</span>
+      <h2>12–14 Months</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Straw cup — whole milk</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00 AM</span>
+        <span class="entry-badge badge-meal">🥣 Breakfast</span>
+        <span class="entry-desc">Breakfast</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:30 AM</span>
+        <span class="entry-badge badge-meal">🍎 Snack</span>
+        <span class="entry-desc">Snack time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:45–11:15</span>
+        <span class="entry-badge badge-nap">😴 Nap 1</span>
+        <span class="entry-desc">~1.5 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Lunch</span>
+        <span class="entry-desc">Lunch</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">2:15–3:30</span>
+        <span class="entry-badge badge-nap">😴 Nap 2</span>
+        <span class="entry-desc">~1.25 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:30 PM</span>
+        <span class="entry-badge badge-meal">🍎 Snack</span>
+        <span class="entry-desc">Snack time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">5:30–6:00</span>
+        <span class="entry-badge badge-meal">🥣 Dinner</span>
+        <span class="entry-desc">Dinner</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:00–6:30</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:45 PM</span>
+        <span class="entry-badge badge-routine">📖 Routine</span>
+        <span class="entry-desc">Brush teeth</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc">Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 10. 15 MONTHS – 2 YEARS ── -->
+  <div class="schedule-block" id="15m-2years">
+    <div class="schedule-block-header">
+      <span class="age-icon">🎠</span>
+      <h2>15 Months – 2 Years</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">6:30–7:30</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Wake up · Snack</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00–8:30</span>
+        <span class="entry-badge badge-meal">🥣 Breakfast</span>
+        <span class="entry-desc">Breakfast</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">10:00 AM</span>
+        <span class="entry-badge badge-meal">🍎 Snack</span>
+        <span class="entry-desc">Snack</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:00–2:00</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~3 hour nap (big consolidation nap!)</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">2:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Lunch</span>
+        <span class="entry-desc">Lunch</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">4:00 PM</span>
+        <span class="entry-badge badge-meal">🍎 Snack</span>
+        <span class="entry-desc">Snack</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Dinner</span>
+        <span class="entry-desc">Dinner</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc">Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 11. 2.5 YEARS ── -->
+  <div class="schedule-block" id="2-5years">
+    <div class="schedule-block-header">
+      <span class="age-icon">🎉</span>
+      <h2>2.5 Years</h2>
+    </div>
+    <div class="schedule-entries">
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 AM</span>
+        <span class="entry-badge badge-wake">☀️ Wake</span>
+        <span class="entry-desc">Wake up</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">8:00–9:00</span>
+        <span class="entry-badge badge-meal">🥣 Breakfast</span>
+        <span class="entry-desc">Breakfast</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">9:00–11:30</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">11:30–12:00</span>
+        <span class="entry-badge badge-routine">📖 Calm Down</span>
+        <span class="entry-desc">Calm down time · Snack</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">12:00–2:30</span>
+        <span class="entry-badge badge-nap">😴 Nap</span>
+        <span class="entry-desc">~2 hour nap</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">2:00–3:00</span>
+        <span class="entry-badge badge-meal">🥣 Lunch</span>
+        <span class="entry-desc">Lunch time</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">3:00–6:00</span>
+        <span class="entry-badge badge-play">🤸 Play</span>
+        <span class="entry-desc">Playtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:00 PM</span>
+        <span class="entry-badge badge-meal">🥣 Dinner</span>
+        <span class="entry-desc">Dinner</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">6:30 PM</span>
+        <span class="entry-badge badge-bath">🛁 Bath</span>
+        <span class="entry-desc">Bathtime</span>
+      </div>
+      <div class="schedule-entry">
+        <span class="entry-time">7:00 PM</span>
+        <span class="entry-badge badge-bedtime">🌙 Bedtime</span>
+        <span class="entry-desc">Sleep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="tips-section">
+    <h2>💡 Tips From Real Parents</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <span class="tip-icon">🔁</span>
+        <h3>Consistency Is Everything</h3>
+        <p>The schedule only works if you stick to it — even on weekends and holidays. Your baby's internal clock will thank you.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🛁</span>
+        <h3>The Bedtime Routine Is the Secret</h3>
+        <p>Bath → books → lotion → PJs → bottle → bed. In that order. Every night. It signals to your baby that sleep is coming.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🤸</span>
+        <h3>Start Tummy Time Early</h3>
+        <p>Even 2 minutes on your chest counts. It builds the neck and core strength babies need — and gets them used to the position.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">⏰</span>
+        <h3>Wake Times Matter Too</h3>
+        <p>A consistent morning wake time is just as important as bedtime. If they sleep in, the whole schedule shifts. Hold the wake time.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">🌙</span>
+        <h3>7PM Bedtime Is the Goal</h3>
+        <p>It sounds early, but an earlier bedtime actually leads to better sleep — less overtired, less fussiness, longer stretches.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-icon">💪</span>
+        <h3>It Takes a Few Weeks</h3>
+        <p>Don't give up after 3 days. Babies need 2–3 weeks of consistency to start adapting. Push through the hard stretch — it's worth it.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>🌙 Baby Sleep Blueprint &nbsp;·&nbsp; Made by real parents, for real parents</p>
+  <p style="margin-top:8px;"><a href="index.html">← Back to Home</a></p>
+</footer>
+
+</body>
+</html>
